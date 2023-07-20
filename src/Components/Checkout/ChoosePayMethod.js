@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row,Col } from 'react-bootstrap'
 
-const ChoosePayMethoud = () => {
+const ChoosePayMethod = () => {
     return (
         <div>
             <div className="admin-content-text pt-5">اختر طريقة الدفع</div>
@@ -45,4 +45,4 @@ const ChoosePayMethoud = () => {
     )
 }
 
-export default ChoosePayMethoud
+export default ChoosePayMethod

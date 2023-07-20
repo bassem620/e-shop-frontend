@@ -10,7 +10,7 @@ import AllBrandPage from "./Page/Brand/AllBrandPage";
 import ShopProductsPage from "./Page/Products/ShopProductsPage";
 import ProductDetalisPage from "./Page/Products/ProductDetalisPage";
 import CartPage from "./Page/Cart/CartPage";
-import ChoosePayMethoudPage from "./Page/Checkout/ChoosePayMethoudPage";
+import ChoosePayMethodPage from "./Page/Checkout/ChoosePayMethodPage";
 import AdminAllProductsPage from "./Page/Admin/AdminAllProductsPage";
 import AdminAllOrdersPage from "./Page/Admin/AdminAllOrdersPage";
 import AdminOrderDetalisPage from "./Page/Admin/AdminOrderDetalisPage";
@@ -41,7 +41,7 @@ function App() {
           <Route path="/products" element={<ShopProductsPage />} />
           <Route path="/products/:id" element={<ProductDetalisPage />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/order/paymethoud" element={<ChoosePayMethoudPage />} />
+          <Route path="/order/paymethod" element={<ChoosePayMethodPage />} />
           <Route path="/admin/allproducts" element={<AdminAllProductsPage />} />
           <Route path="/admin/allorders" element={<AdminAllOrdersPage />} />
           <Route path="/admin/orders/:id" element={<AdminOrderDetalisPage />} />
