@@ -23,12 +23,20 @@ const HomeCategory = () => {
             <SubTiltle title="التصنيفات" btntitle="المزيد" pathText="/allcategory" />
             <Row className='my-2 d-flex justify-content-between'>
                 {
-                    !loading ? (
-                    categories.data ? 
+                    !loading ? 
                     (
-                        categories.data.slice(0,5).map( (category, index) => (<CategoryCard key={category.id} title={category.name} img={category.image} background={colors[index]} />))
-                    ) : <h4>لا يوجد تصنيفات</h4>) :
-                    <Spinner animation="border" variant="primary" />
+                        categories.data ? 
+                        (
+                            categories.data.slice(0,5).map( (category, index) => (
+                                <CategoryCard 
+                                    key={index} 
+                                    title={category.name} 
+                                    img={category.image} 
+                                    background={colors[index]} 
+                                />
+                            ))
+                        ) : <h4>لا يوجد تصنيفات</h4>
+                    ) :<Spinner animation="border" variant="primary" />
                 }
             </Row>
         </Container>
