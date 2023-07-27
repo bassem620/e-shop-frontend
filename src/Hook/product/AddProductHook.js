@@ -123,8 +123,12 @@ const AddProductHook = () => {
     // onSubmit
     const handleSubmit = async e => {
         e.preventDefault();
-        if (CatID === 0 || prodName === "" || prodDescription === "" || images.length <= 0 || priceBefore <= 0) {
+        if (CatID === 0 || prodName === "" || prodDescription === "" || images.length <= 0 || priceBefore <= 0 ) {
             notify("من فضلك اكمل البيانات", "warn")
+            return;
+        }
+        if(priceAfter >= priceBefore){
+            notify("ادخل البيانات بشكل صحيح (السعر بعد الخصم)", "warn")
             return;
         }
 
