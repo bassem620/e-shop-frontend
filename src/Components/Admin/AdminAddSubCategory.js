@@ -1,7 +1,10 @@
-import React from 'react'
 import { Row, Col } from 'react-bootstrap'
+import { ToastContainer } from 'react-toastify';
+import AddSubCategoryHook from '../../Hook/subcategory/AddSubCategoryHook';
 
 const AdminAddSubCategory = () => {
+    const {name, categories, handleOnChange, onChangeName, handleSubmit} = AddSubCategoryHook();
+
     return (
         <div>
             <Row className="justify-content-start ">
@@ -9,22 +12,27 @@ const AdminAddSubCategory = () => {
                 <Col sm="8">
                     <input
                         type="text"
+                        value={name}
+                        onChange={onChangeName}
                         className="input-form d-block mt-3 px-3"
                         placeholder="اسم التصنيف الفرعي"
                     />
-                    <select name="languages" id="lang" className="select mt-3 px-2 ">
-                        <option value="val">التصنيف الاول</option>
-                        <option value="val2">التصنيف الثاني</option>
-                        <option value="val2">التصنيف الثالث</option>
-                        <option value="val2">التصنيف الرابع</option>
+                    <select name="languages" id="lang" className="select mt-3 px-2 " onChange={handleOnChange}>
+                        <option value="0">اختر تصيف فرعى</option>
+                        {
+                            categories.data && categories.data.map( (cat, ind) => (
+                                <option value={cat._id} key={ind}>{cat.name}</option>
+                            ))
+                        }
                     </select>
                 </Col>
             </Row>
             <Row>
                 <Col sm="8" className="d-flex justify-content-end ">
-                    <button className="btn-save d-inline mt-2 ">حفظ التعديلات</button>
+                    <button onClick={handleSubmit} className="btn-save d-inline mt-2 ">حفظ التعديلات</button>
                 </Col>
             </Row>
+            <ToastContainer />
         </div>
     )
 }
