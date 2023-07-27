@@ -1,2 +1,3 @@
 export const GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES"
 export const GET_ERROR = "GET_ERROR"
+export const ADD_NEW_CATEGORY = "ADD_NEW_CATEGORIES"
