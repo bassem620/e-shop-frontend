@@ -1,5 +1,22 @@
+import useGetData from '../../hooks/useGetData';
 import { useInsertDataWithImage } from "../../hooks/useInsertData";
-import { ADD_NEW_PRODUCT, GET_ERROR } from "../type";
+import { GET_ALL_PRODUCTS, ADD_NEW_PRODUCT, GET_ERROR } from "../type";
+
+export const getAllProducts = _ => async (dispatch) => {
+    try {
+        const res = await useGetData(`/api/v1/product?sort=sold`);
+        dispatch({
+            type: GET_ALL_PRODUCTS,
+            payload: res,
+            loading: true
+        })
+    } catch (err) {
+        dispatch({
+            type: GET_ERROR,
+            payload: "Error: " + err,
+        })
+    }
+}
 
 export const createProduct = (formData) => async (dispatch) => {
     try {
@@ -10,7 +27,6 @@ export const createProduct = (formData) => async (dispatch) => {
             loading: true
         })
     } catch (err) {
-        console.log(err);
         dispatch({
             type: GET_ERROR,
             payload: "Error: " + err,

@@ -4,15 +4,15 @@ import { Row, Col } from 'react-bootstrap'
 import ProductGallery from './ProductGallery'
 import ProductText from './ProductText'
 
-const ProductDetalis = () => {
+const ProductDetalis = ({id}) => {
     return (
         <div>
             <Row className='py-3'>
                 <Col lg="4">
-                    <ProductGallery />
+                    <ProductGallery id={id}/>
                 </Col>
                 <Col lg="8">
-                    <ProductText />
+                    <ProductText id={id}/>
                 </Col>
             </Row>
         </div>

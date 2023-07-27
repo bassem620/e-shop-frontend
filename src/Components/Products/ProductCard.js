@@ -2,11 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Col } from 'react-bootstrap'
 
-import prod1 from "../../images/prod1.png"
 import favoff from "../../images/fav-off.png"
 import rate from "../../images/rate.png"
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
     return (
         <Col xs="6" sm="6" md="4" lg="3" className="d-flex">
             <Card
@@ -19,8 +18,8 @@ const ProductCard = () => {
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0 2px 2px 0 rgba(151,151,151,0.5)",
                 }}>
-                <Link to="/products/:id" style={{ textDecoration: 'none' }}>
-                    <Card.Img style={{ height: "228px", width: "100%" }} src={prod1} />
+                <Link to={`/products/${item._id}`} style={{ textDecoration: 'none' }}>
+                    <Card.Img style={{ height: "228px", width: "100%" }} src={item.imageCover} />
                 </Link>
                 <div className="d-flex justify-content-end mx-2">
                     <img
@@ -36,7 +35,7 @@ const ProductCard = () => {
                 <Card.Body>
                     <Card.Title>
                         <div className="card-title">
-                            سود كربون ساعة يد ذكية بيب إس أسود كربون{" "}
+                            {item.title}
                         </div>
                     </Card.Title>
                     <Card.Text>
@@ -49,10 +48,10 @@ const ProductCard = () => {
                                     height="16px"
                                     width="16px"
                                 />
-                                <div className="card-rate mx-2">4.5</div>
+                                <div className="card-rate mx-2">{item.ratingQty}</div>
                             </div>
                             <div className="d-flex">
-                                <div className="card-price">880</div>
+                                <div className="card-price">{item.priceAfterDiscount ? item.priceAfterDiscount : item.price}</div>
                                 <div className="card-currency mx-1">جنيه</div>
                             </div>
                         </div>
