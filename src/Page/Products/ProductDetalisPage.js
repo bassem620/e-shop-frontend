@@ -6,9 +6,11 @@ import CategoryHeader from '../../Components/Category/CategoryHeader'
 import ProductDetalis from '../../Components/Products/ProductDetalis'
 import RateContainer from '../../Components/Rate/RateContainer'
 import CardProductsContainer from '../../Components/Products/CardProductsContainer'
+import ViewProductDetails from '../../Hook/product/ViewProductDetails'
 
 const ProductDetalisPage = () => {
     const { id } = useParams();
+    const { sameCatProducts } = ViewProductDetails(id);
 
     return (
         <div style={{ minHeight: '670px' }}>
@@ -16,7 +18,7 @@ const ProductDetalisPage = () => {
             <Container>
                 <ProductDetalis id={id}/>
                 <RateContainer />
-                <CardProductsContainer title="منتجات قد تعجبك" />
+                <CardProductsContainer products={sameCatProducts} title="منتجات قد تعجبك" />
             </Container>
         </div>
     )

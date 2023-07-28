@@ -1,7 +1,8 @@
-import { ADD_NEW_BRAND, GET_ALL_BRANDS, GET_ERROR } from "../type";
+import { ADD_NEW_BRAND, GET_ALL_BRANDS, GET_ONE_BRAND, GET_ERROR } from "../type";
 
 const initialState = {
     brands: [],
+    oneBrand: [],
     loading: true,
 }
 
@@ -11,6 +12,12 @@ const brandReducer = (state = initialState, action) => {
             return {
                 ...state,
                 brands: action.payload,
+                loading: false
+            }
+        case GET_ONE_BRAND:
+            return {
+                ...state,
+                oneBrand: action.payload,
                 loading: false
             }
         case ADD_NEW_BRAND:
