@@ -1,10 +1,11 @@
-import { GET_ALL_PRODUCTS, GET_ONE_PRODUCTS, GET_SAME_PRODUCT_CAT,ADD_NEW_PRODUCT, GET_ERROR } from "../type";
+import { GET_ALL_PRODUCTS, GET_ONE_PRODUCTS, GET_SAME_PRODUCT_CAT,ADD_NEW_PRODUCT, DELETE_PRODUCT, GET_ERROR } from "../type";
 
 const initialState = {
     products: [],
     allProducts: [],
     oneProduct: [],
     sameProducts: [],
+    deleteProduct: [],
     loading: true,
 }
 
@@ -30,6 +31,11 @@ const productReducer = (state = initialState, action) => {
             return {
                 loading: false,
                 products: action.payload,
+            }
+        case DELETE_PRODUCT:
+            return {
+                loading: false,
+                deleteProduct: action.payload,
             }
         case GET_ERROR:
             return {

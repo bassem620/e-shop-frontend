@@ -9,7 +9,12 @@ import Pagination from '../../Components/Uitily/Pagination'
 import ViewSearchProducts from '../../Hook/product/ViewSearchProducts'
 
 const ShopProductsPage = () => {
-    const [products] = ViewSearchProducts();
+    const [products, pagination, onPress] = ViewSearchProducts();
+
+    if(pagination)
+        var pageCount = pagination;
+    else
+        pageCount = 0
 
     return (
         <div style={{ minHeight: '670px' }}>
@@ -24,7 +29,9 @@ const ShopProductsPage = () => {
                         <CardProductsContainer title="" btntitle="" products={products}/>
                     </Col>
                 </Row>
-                    <Pagination />
+                {
+                    pageCount > 1 && <Pagination pageCount={pageCount} onPress={onPress} />
+                }
             </Container>
         </div>
     )
